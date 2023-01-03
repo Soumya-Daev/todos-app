@@ -74,5 +74,9 @@ def update(sno):
     updTodo = myTodo.query.filter_by(sno=sno).first()
     return render_template('update.html', todo = updTodo)
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html', message=e)
+
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
