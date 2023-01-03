@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>TODO App | {% block title %} {% endblock title %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename= 'to-do-list.ico')}}">
+
+    <style>
+      #load{
+      width:100%;
+      height:100%;
+      z-index: 9999;
+      position:fixed;
+      background:url("{{url_for('static', filename='loader.gif')}}") no-repeat center
+      }
+    </style>
+
+  </head>
+  <body>
+    <div id="load"></div>
+    <div id="contents">
+        {% block body %}
+            
+        {% endblock body %}
+
+    <!-- Footer  -->
+    <div class = "foot">
+        <footer class = "footer-distributed">
+  
+        <div class = "footer-right">
+  
+          <a href="#"><i class = "fa fa-facebook"></i></a>
+          <a href="#"><i class = "fa fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/in/soumyadev-saha-5ab6a8237/" target="_blank" rel="noreferrer"><i class = "fa fa-linkedin"></i></a>
+          <a href="https://github.com/SoumyadevSaha/" target="_blank" rel="noreferrer"><i class = "fa fa-github"></i></a>
+  
+        </div>
+  
+        <div class = "footer-left">
+  
+          <p class = "footer-links">
+            <a class = "link-1" href="/"> Home </a>
+  
+            <a href="#"> Blog </a>
+  
+            <a href="#"> Pricing </a>
+  
+            <a href="/about"> About </a>
+  
+            <a href="#"> Faq </a>
+  
+            <a href="#"> Contact </a>
+          </p>
+  
+          <p id="footer_with_date">Soumyadev's Creations &copy; 2022</p>
+        </div>
+  
+        </footer>
+      </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='myStyle.css')}}">
+    <!-- <script src="{{url_for('static', filename='myScript.js')}}"></script> -->
+  </div>
+  </body>
+
+  <script>
+    document.onreadystatechange = function () {
+      
+      var date = new Date();
+      var year = date.getFullYear();
+      document.getElementById("footer_with_date").innerHTML = "Soumyadev's Creations &copy; " + year;
+
+    var state = document.readyState
+    if (state == 'complete') {
+        setTimeout(function(){
+          document.getElementById('load').style.visibility="hidden";
+        },600);
+    }
+}
+</script>
+<style>
+  .foot{
+    position: relative;
+    margin-top: 70px;
+    bottom: 0%;
+  }
+</style>
+
+<!-- Footer  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{url_for('static', filename = 'footer.css')}}">
+
+</html>
